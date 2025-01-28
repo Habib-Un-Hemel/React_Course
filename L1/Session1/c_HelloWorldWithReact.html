@@ -1,0 +1,39 @@
+<!-- 1. React.createElement
+2. ReactDOM.createRoot
+3.root.render -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script>
+      //creating h1 tag using createElement
+      const heading = React.createElement("h1", {}, "Hello World From React!");
+
+      //taking the id="root" and created a root into react
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      //render the heading by the root
+      root.render(heading);
+    </script>
+  </body>
+</html>
+
+<!--https://unpkg.com/react@18/umd/react.development.js exploring this link
+1. too much react code looks like , js code 
+2. react is full of JS , its called a JS libray  
+3. this is how we inject react in my project -->
