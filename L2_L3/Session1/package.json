@@ -2,8 +2,9 @@
   "name": "reactlearning",
   "version": "1.0.0",
   "description": "i am enjoying react",
-  
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel buildindex.html",
     "test": "jest"
   },
   "author": "Hemel",
@@ -15,5 +16,8 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
