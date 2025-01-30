@@ -36,11 +36,12 @@ const Header = () => {
     </div>
   );
 };
-
+const Body = () => {};
 const AppLayout = () => {
   return (
     <div className="app">
       <Header></Header>
+      <Body></Body>
     </div>
   );
 };
