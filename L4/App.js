@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 /*
 *Header
     - Logo
@@ -15,7 +14,6 @@ import ReactDOM from "react-dom/client";
     - Address
     - Contact
 */
-
 const Header = () => {
   return (
     <div className="header">
@@ -36,7 +34,43 @@ const Header = () => {
     </div>
   );
 };
-const Body = () => {};
+
+const ResturantCard = () => {
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
+      ></img>
+      <h3>Megna Foods</h3>
+      <h4>Briyani, Asian</h4>
+      <h4>3.8 stats</h4>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="Search">Search</div>
+      <div className="res-container">
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+        <ResturantCard></ResturantCard>
+      </div>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="app">
