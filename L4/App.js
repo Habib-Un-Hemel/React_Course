@@ -43,9 +43,11 @@ const ResturantCard = () => {
         alt="res-logo"
         src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
       ></img>
-      <h3>Megna Foods</h3>
-      <h4>Briyani, Asian</h4>
-      <h4>3.8 stats</h4>
+      <div className="res-header">
+        <h3>Megna Foods</h3>
+        <h4>Briyani, Asian</h4>
+        <h4>3.8 stats</h4>
+      </div>
     </div>
   );
 };
@@ -53,12 +55,8 @@ const ResturantCard = () => {
 const Body = () => {
   return (
     <div className="body">
-      <div className="Search">Search</div>
+      <div className="Search">Search the food</div>
       <div className="res-container">
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
         <ResturantCard></ResturantCard>
         <ResturantCard></ResturantCard>
         <ResturantCard></ResturantCard>
@@ -71,11 +69,25 @@ const Body = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <div className="footer">
+      <div className="footer-items">
+        <ul>
+          <li>Copyright</li>
+          <li>Links</li>
+          <li>Address </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 const AppLayout = () => {
   return (
     <div className="app">
       <Header></Header>
       <Body></Body>
+      <Footer></Footer>
     </div>
   );
 };
