@@ -35,7 +35,7 @@ const Header = () => {
   );
 };
 
-const ResturantCard = () => {
+const ResturantCard = (props) => {
   return (
     <div className="res-card">
       <img
@@ -44,8 +44,8 @@ const ResturantCard = () => {
         src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
       ></img>
       <div className="res-header">
-        <h3>Megna Foods</h3>
-        <h4>Briyani, Asian</h4>
+        <h3>{props.resName}</h3>
+        <h4>{props.cusine}</h4>
         <h4>3.8 stats</h4>
       </div>
     </div>
@@ -57,13 +57,11 @@ const Body = () => {
     <div className="body">
       <div className="Search">Search the food</div>
       <div className="res-container">
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
-        <ResturantCard></ResturantCard>
+        <ResturantCard resName="BFC" cusine="fastfood, Burger" />
+        <ResturantCard resName="Sultan Dine" cusine="desi , briyani" />
+        <ResturantCard resName="Kolapata" cusine="all desi item" />
+        <ResturantCard resName="Nanna Briyani" cusine="briyani" />
+        <ResturantCard resName="KFC" cusine="fastfood, Burger" />
       </div>
     </div>
   );
