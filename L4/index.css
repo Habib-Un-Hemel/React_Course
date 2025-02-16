@@ -40,7 +40,7 @@
   border-radius: 10px;
   background-color: grey;
   width: 200px;
-  height: 300px;
+
   padding: 5px;
   margin: 5px;
   margin-left: 8px;
@@ -55,7 +55,7 @@
 
 
 .res-logo {
-  height: 60%;
+  /* height: 60%; */
   width: 100%;
 }
 
