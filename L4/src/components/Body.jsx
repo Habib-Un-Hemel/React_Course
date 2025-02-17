@@ -1,41 +1,86 @@
 import ResturantCard from "./ResturantCard";
-import restaurantListMock from "../utils/mockData";
+// import restaurantListMock from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [restaurantList, setrestaurantList] = useState(restaurantListMock);
+  //step1: at first no data , then api is giving new data
+  const [restaurantList, setrestaurantList] = useState([]);
 
+  const [filteredResturant, setfilteredResturant] = useState([]);
+
+  //step2
+  const [searchText, setsearchText] = useState("");
+
+  //it will run after the body render
   useEffect(() => {
     fetchData();
   }, []);
 
+  //api gives us promises
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
     //we got JSon data from Api
     const json = await data.json();
-    console.log(json);
-    console.log(json.data.cards[3].card.card);
-    // setrestaurantList(json.data.cards[3].card.card.info);
+    // console.log(
+    //   json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+    // );
+
+    // after getting data from API, we update the useState so at first shimmer happens then after getting data from api it reRender
+    setrestaurantList(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+
+    // optional chainning JS
+    setfilteredResturant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-//shimmer component (conditional rendering)
-if(restaurantList.length==0){
-  return(<Shimmer/>)
-}
+  //shimmer component (conditional rendering)
+  if (restaurantList.length == 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            placeholder="Search food"
+            value={searchText}
+            onChange={(e) => {
+              setsearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            onClick={(e) => {
+              //search logic
+              console.log(searchText);
+
+              const filteredResturant = restaurantList.filter((resData) =>
+                resData.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+              );
+              setfilteredResturant(filteredResturant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
             const filteredList = restaurantList.filter(
-              (res) => res.data.avgRating > 4.4
+              (resData) => resData.info.avgRating > 4.4
             );
-            setrestaurantList(filteredList);
+            setfilteredResturant(filteredList);
           }}
         >
           Top Rated Restuarant
@@ -43,12 +88,8 @@ if(restaurantList.length==0){
       </div>
 
       <div className="res-container">
-        {restaurantList.map((restuarant) => (
-          <ResturantCard key={restuarant.data.id} resData={restuarant} />
-        ))}
-        <ResturantCard resData={restaurantList[0]} />
-        {restaurantList.map((restuarant) => (
-          <ResturantCard key={restuarant.data.id} resData={restuarant} />
+        {filteredResturant.map((restuarant) => (
+          <ResturantCard key={restuarant.info.id} resData={restuarant} />
         ))}
         ;
       </div>
