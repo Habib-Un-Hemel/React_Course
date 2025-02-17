@@ -1,5 +1,5 @@
 
-const restaurantList = [
+const restaurantListMock = [
   {
     type: "restaurant",
     data: {
@@ -292,4 +292,4 @@ const restaurantList = [
 
 
 
-export default restaurantList;
+export default restaurantListMock;
