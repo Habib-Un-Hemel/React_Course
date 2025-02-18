@@ -2,6 +2,7 @@ import ResturantCard from "./ResturantCard";
 // import restaurantListMock from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   //step1: at first no data , then api is giving new data
@@ -89,7 +90,14 @@ const Body = () => {
 
       <div className="res-container">
         {filteredResturant.map((restuarant) => (
-          <ResturantCard key={restuarant.info.id} resData={restuarant} />
+          <Link
+            key={restuarant.info.id}
+            to={"/restaurants/" + restuarant.info.id}
+          >
+            {/* {console.log("eafaf")}
+            {console.log(restuarant.info.id)} */}
+            <ResturantCard resData={restuarant} />
+          </Link>
         ))}
         ;
       </div>
