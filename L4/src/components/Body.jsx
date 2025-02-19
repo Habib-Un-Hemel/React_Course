@@ -91,8 +91,8 @@ const Body = () => {
       <div className="res-container">
         {filteredResturant.map((restuarant) => (
           <Link
-            key={restuarant.info.id}
-            to={"/restaurants/" + restuarant.info.id}
+            key={restuarant?.info.id}
+            to={"/restaurants/" + restuarant?.info.id}
           >
             {/* {console.log("eafaf")}
             {console.log(restuarant.info.id)} */}
