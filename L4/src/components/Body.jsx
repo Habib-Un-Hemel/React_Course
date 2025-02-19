@@ -3,6 +3,7 @@ import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //step1: at first no data , then api is giving new data
@@ -41,6 +42,13 @@ const Body = () => {
     );
   };
 
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return <h1>Offline</h1>;
+  }
+
+
+  
   //shimmer component (conditional rendering)
   if (restaurantList.length == 0) {
     return <Shimmer />;

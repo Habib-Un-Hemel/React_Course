@@ -5,7 +5,6 @@ import { useParams } from "react-router";
 
 const RestaurantMenu = () => {
   const {resId} = useParams();
-  console.log(resId);
   const resInfo = useRestaurantMenu(resId);
 
   //   const { name, city, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
