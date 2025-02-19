@@ -1,4 +1,11 @@
-.header {
+@import "tailwindcss";
+
+
+
+
+
+
+/* .header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
@@ -22,7 +29,7 @@
   margin: 10px;
 }
 
-/* header is done */
+
 
 .res-container {
   border: 1px solid black;
@@ -97,4 +104,4 @@
 .search {
   margin: 10px;
 }
-
+ */
