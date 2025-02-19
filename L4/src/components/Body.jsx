@@ -47,8 +47,6 @@ const Body = () => {
     return <h1>Offline</h1>;
   }
 
-
-  
   //shimmer component (conditional rendering)
   if (restaurantList.length == 0) {
     return <Shimmer />;
@@ -56,11 +54,11 @@ const Body = () => {
 
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4 ">
           <input
             type="text"
-            className="search-box"
+            className="border-2 border-black-300"
             placeholder="Search food"
             value={searchText}
             onChange={(e) => {
@@ -68,6 +66,7 @@ const Body = () => {
             }}
           ></input>
           <button
+            className="px-5 py-2 bg-green-100 m-4 rounded-lg"
             onClick={(e) => {
               //search logic
               console.log(searchText);
@@ -83,20 +82,22 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = restaurantList.filter(
-              (resData) => resData.info.avgRating > 4.4
-            );
-            setfilteredResturant(filteredList);
-          }}
-        >
-          Top Rated Restuarant
-        </button>
+        <div className="search m-4 p-4">
+          <button
+            className="px-5 py-2 bg-green-100 m-4 rounded-lg"
+            onClick={() => {
+              const filteredList = restaurantList.filter(
+                (resData) => resData.info.avgRating > 4.4
+              );
+              setfilteredResturant(filteredList);
+            }}
+          >
+            Top Rated Restuarant
+          </button>
+        </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap ">
         {filteredResturant.map((restuarant) => (
           <Link
             key={restuarant?.info.id}

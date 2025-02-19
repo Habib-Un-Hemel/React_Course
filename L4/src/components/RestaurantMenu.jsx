@@ -2,9 +2,8 @@ import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useParams } from "react-router";
 
-
 const RestaurantMenu = () => {
-  const {resId} = useParams();
+  const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
 
   //   const { name, city, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
@@ -21,12 +20,15 @@ const RestaurantMenu = () => {
   console.log(itemCards);
 
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <h3> {cuisines.join("; ")}</h3>
-      <h3> {costForTwoMessage}</h3>
-      <h4>Menu</h4>
-      <ul>
+    <div className="menu bg-gray-100 border-2 m-5  rounded-2xl">
+      <div className="p-5 rounded-t-2xl bg-gray-400">
+        <h1 className="font-bold text-3xl flex justify-center ">{name}</h1>
+        <h3 className="flex justify-center"> {cuisines.join("; ")}</h3>
+        <h3 className="flex justify-center"> {costForTwoMessage}</h3>
+      </div>
+
+      <h4 className="text-xl font-bold flex justify-center">Menu List:</h4>
+      <ul className="pl-70">
         {itemCards.map((item) => (
           <li key={item.card.info.id}>
             {item.card.info.name} -{"Taka: "}
